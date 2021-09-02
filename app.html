@@ -12,9 +12,22 @@
     
 
 
+    <div class="painel">
+        <div class="vidas">
+            <img src="src/img/coracao_vazio.png" alt="">
+            <img src="src/img/coracao_cheio.png" alt="">
+            <img src="src/img/coracao_cheio.png" alt="">
+        </div>
+        <div class="cronometro">
+            Tempo Restante: ?
+        </div>
+    </div>
+
     <!--Chamada da função posição Randomica() após o body ser carregado-->
     <script>
-        posicaoRandomica()
+        setInterval(function(){
+            posicaoRandomica()
+        }, 1000)
     </script>
 </body>
 </html>

@@ -10,14 +10,18 @@ ajustaTela()
 
 
 function posicaoRandomica() {
+    //remover o mosquito anterior, caso exista
+    if (document.getElementById('mosquito')) {
+        document.getElementById('mosquito').remove()
+    }
+
+
     var posicaoX = Math.floor(Math.random() * largura) - 90
     var posicaoY = Math.floor(Math.random() * altura) - 90
 
     //Operadores ternários para tratar caso as cordenadas da img forem menos que zero fazendo-a sair da tela
     posicaoX = posicaoX < 0 ? 0 : posicaoX
     posicaoY = posicaoY < 0 ? 0 : posicaoY
-
-    console.log(`Posição X: ${posicaoX}, Posição Y: ${posicaoY}`)
 
 
     //criar o elemento HTML usando o DOM
@@ -29,6 +33,7 @@ function posicaoRandomica() {
     mosquito.style.position = 'absolute'
     mosquito.style.left = posicaoX + 'px'
     mosquito.style.top = posicaoY + 'px'
+    mosquito.id = 'mosquito'
 
     document.body.appendChild(mosquito)
 
