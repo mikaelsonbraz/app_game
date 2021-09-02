@@ -1,5 +1,6 @@
 var altura = 0
 var largura = 0
+var vidas = 1
 
 function ajustaTela() {    
     altura = window.innerHeight
@@ -13,6 +14,12 @@ function posicaoRandomica() {
     //remover o mosquito anterior, caso exista
     if (document.getElementById('mosquito')) {
         document.getElementById('mosquito').remove()
+        if (vidas > 3) {
+            window.location.href = 'app_gameover.html'
+        } else {
+            document.getElementById('vida' + vidas).src = "src/img/coracao_vazio.png"
+            vidas++
+        }
     }
 
 
@@ -34,6 +41,11 @@ function posicaoRandomica() {
     mosquito.style.left = posicaoX + 'px'
     mosquito.style.top = posicaoY + 'px'
     mosquito.id = 'mosquito'
+
+    //adicionando o evento onclick ao elemento mosquito
+    mosquito.onclick = function () {
+        this.remove()
+    }
 
     document.body.appendChild(mosquito)
 
