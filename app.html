@@ -19,15 +19,19 @@
             <img id="vida3" src="src/img/coracao_cheio.png" alt="">
         </div>
         <div class="cronometro">
-            Tempo Restante: ?
+            Tempo Restante: <span id='cronometro'></span>
         </div>
     </div>
 
     <!--Chamada da função posição Randomica() após o body ser carregado-->
     <script>
+        
+        document.getElementById('cronometro').innerHTML = tempo
+
         setInterval(function(){
             posicaoRandomica()
         }, 2000)
+        
     </script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 var altura = 0
 var largura = 0
-var vidas = 1
+var vidas = 3
+var tempo = 15
 
 function ajustaTela() {    
     altura = window.innerHeight
@@ -9,22 +10,31 @@ function ajustaTela() {
 
 ajustaTela()
 
+var cronometro = setInterval(function () {
+    tempo--
+    if (tempo < 0) {
+        window.location.href = 'winner.html'
+    } else {
+        document.getElementById('cronometro').innerHTML = tempo
+    }
+}, 1000)
+
 
 function posicaoRandomica() {
     //remover o mosquito anterior, caso exista
     if (document.getElementById('mosquito')) {
         document.getElementById('mosquito').remove()
-        if (vidas > 3) {
+        if (vidas < 1) {
             window.location.href = 'app_gameover.html'
         } else {
             document.getElementById('vida' + vidas).src = "src/img/coracao_vazio.png"
-            vidas++
+            vidas--
         }
     }
 
 
-    var posicaoX = Math.floor(Math.random() * largura) - 90
-    var posicaoY = Math.floor(Math.random() * altura) - 90
+    var posicaoX = Math.floor(Math.random() * largura) - 120
+    var posicaoY = Math.floor(Math.random() * altura) - 120
 
     //Operadores ternários para tratar caso as cordenadas da img forem menos que zero fazendo-a sair da tela
     posicaoX = posicaoX < 0 ? 0 : posicaoX
