@@ -3,6 +3,40 @@ var largura = 0
 var vidas = 3
 var tempo = 15
 
+//recuperando o nivel do jogo selecionado no index.html
+var nivel = window.location.search.replace('?', '')
+var criaMosquitoTempo = 2000
+
+switch (nivel) {
+    case 'facil':
+        //logica 2000ms, 15s de jogo
+        break;
+    
+    case 'normal':
+        //logica 1500ms, 25s de jogo
+        criaMosquitoTempo = 1500;
+        tempo = 25;
+        break;
+
+    case 'dificil':
+        //logica 1200ms, 35s de jogo
+        criaMosquitoTempo = 1200;
+        tempo = 35;
+        break;
+
+    case 'muito-dificil':
+        //logica 1000ms, 45s de jogo
+        criaMosquitoTempo = 1000;
+        tempo = 45;
+        break;
+
+    case 'hollow':
+        //logica 500ms, 60s de jogo
+        criaMosquitoTempo = 500;
+        tempo = 50;
+        break;
+}
+
 function ajustaTela() {    
     altura = window.innerHeight
     largura = window.innerWidth
